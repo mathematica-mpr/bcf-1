@@ -78,6 +78,8 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     Rcout << "z: " <<  logBuff << "\n";
     logger.getVectorHead(w_, logBuff);
     Rcout << "w: " <<  logBuff << "\n";
+
+
   }
 
 
@@ -217,6 +219,13 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
   pi_con.sigma = shat/fabs(mscale); //resid variance in backfitting is \sigma^2_y/mscale^2
 
   double sigma = shat;
+
+
+  sprintf(logBuff, "pi_mod alpha %f, beta %f, tau %f, sigma %f",pi_mod.alpha, pi_mod.beta, pi_mod.tau, pi_mod.sigma);
+  logger.log(logBuff);
+
+  sprintf(logBuff, "pi_con alpha %f, beta %f, tau %f, sigma %f",pi_con.alpha, pi_con.beta, pi_con.tau, pi_con.sigma);
+  logger.log(logBuff);
 
   // @Peter This is where dinfo is initialized
 
@@ -919,17 +928,31 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
       }
     }
 
-    logger.log("Draw Sigma");
-    //draw sigma
+    logger.log("Drawing Sigma");
+    // ---------------------------------------------------------
+    // Draw sigma
+    // ---------------------------------------------------------
     double rss = 0.0;
     double restemp = 0.0;
     for(size_t k=0;k<n;k++) {
       restemp = y[k]-allfit[k];
       rss += w[k]*restemp*restemp;
     }
+
+    sprintf(logBuff, "old sigma: %f, current rss: %f, nu: %f, lambda: %f",sigma, rss, nu, lambda);
+    logger.log(logBuff);
+
+    if(verbose_itr){
+      Rcout << "Original pi_con.tau : " <<  pi_con.tau << "\n";
+    }
+
     sigma = sqrt((nu*lambda + rss)/gen.chi_square(nu+n));
     pi_con.sigma = sigma/fabs(mscale);
-    pi_mod.sigma = sigma;
+    pi_con.sigma = sigma; // Is this another copy paste error?
+
+    sprintf(logBuff, "new sigma: %f, pi_con.sigma: %f, pi_mod.sigma: %f",sigma, pi_con.sigma, pi_mod.sigma);
+    logger.log(logBuff);
+
 
     if( ((iIter>=burn) & (iIter % thin==0)) )  {
 

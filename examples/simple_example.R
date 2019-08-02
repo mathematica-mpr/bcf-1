@@ -8,7 +8,7 @@ n_sim <- 20
 
 x <- matrix(rnorm(n*p), nrow=n)
 
-weights <- 1.0*rep(1, n)
+weights <- 1.0*rexp(n)
 
 
 # create targeted selection, whereby a practice's likelihood of joining the intervention (pi) is related to their expected outcome (mu)
