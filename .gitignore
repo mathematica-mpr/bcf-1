@@ -75,5 +75,5 @@ tmp
 *.out
 *.app
 
-Testing scripts
+# Testing scripts
 scripts/

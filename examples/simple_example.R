@@ -1,9 +1,9 @@
 set.seed(1)
 
 p <- 3 # two control variables and one effect moderator
-n <- 10000
-n_burn <- 100
-n_sim <- 150
+n <- 100
+n_burn <- 50
+n_sim <- 100
 
 
 x <- matrix(rnorm(n*p), nrow=n)
@@ -40,7 +40,8 @@ out2 <- bcf2::bcf(y          = y,
                   nburn      = n_burn,
                   nsim       = n_sim,
                   w          = weights, 
-                  update_interval = 100)
+                  update_interval = 100,
+                  verbose=TRUE)
 
                   
 cat("BCF run complete\n")
