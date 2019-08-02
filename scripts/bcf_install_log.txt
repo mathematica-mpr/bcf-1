@@ -1,0 +1,167 @@
+Removing package from 'C:/Users/PMariani/Documents/R/R-3.5.2/library'
+(as 'lib' is unspecified)
+Updating bcf2 documentation
+Writing NAMESPACE
+Loading bcf2
+Loading required package: Hmisc
+Loading required package: lattice
+Loading required package: survival
+Loading required package: Formula
+Loading required package: ggplot2
+
+Attaching package: 'Hmisc'
+
+The following objects are masked from 'package:base':
+
+    format.pval, units
+
+Writing NAMESPACE
+Warning messages:
+1: roxygen2 requires Encoding: UTF-8 
+2: package 'Hmisc' was built under R version 3.5.3 
+3: replacing previous import 'Rcpp::LdFlags' by 'RcppParallel::LdFlags' when loading 'bcf2' 
+* installing to library 'C:/Users/PMariani/Documents/R/R-3.5.2/library'
+* installing *source* package 'bcf2' ...
+files 'src/bcf_clean_overpar.o', 'src/bcf2.dll', 'src/bd.o', 'src/funs.o', 'src/logging.o', 'src/RcppExports.o', 'src/rng.o', 'src/tree.o' are missing
+files 'DESCRIPTION', 'man/bcf.Rd', 'NAMESPACE', 'R/bcf.R', 'R/RcppExports.R', 'src/bcf_clean_overpar.cpp', 'src/bd.h', 'src/funs.cpp', 'src/Makevars', 'src/Makevars.win', 'src/RcppExports.cpp', 'src/tree.cpp' have the wrong MD5 checksums
+** libs
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c RcppExports.cpp -o RcppExports.o
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bcf_clean.cpp -o bcf_clean.o
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bcf_clean_overpar.cpp -o bcf_clean_overpar.o
+bcf_clean_overpar.cpp:91:3: warning: "/*" within comment [-Wcomment]
+   /* Read, format y
+ ^
+bcf_clean_overpar.cpp:110:3: warning: "/*" within comment [-Wcomment]
+   /* Read, format  weights 
+ ^
+bcf_clean_overpar.cpp:121:3: warning: "/*" within comment [-Wcomment]
+   /* Read, format X_con
+ ^
+bcf_clean_overpar.cpp:146:3: warning: "/*" within comment [-Wcomment]
+   /* Read, format X_mod
+ ^
+bcf_clean_overpar.cpp:177:3: warning: "/*" within comment [-Wcomment]
+   /* Setup the model
+ ^
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bd.cpp -o bd.o
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c funs.cpp -o funs.o
+funs.cpp: In constructor 'AllSuffWorker::AllSuffWorker(tree&, xinfo&, dinfo&, std::map<const tree*, long long unsigned int>, size_t, double*)':
+funs.cpp:208:9: warning: 'AllSuffWorker::nb' will be initialized after [-Wreorder]
+  size_t nb;
+         ^
+funs.cpp:207:10: warning:   'double* AllSuffWorker::weight' [-Wreorder]
+  double* weight;
+          ^
+funs.cpp:224:2: warning:   when initialized here [-Wreorder]
+  AllSuffWorker(tree& x,
+  ^
+funs.cpp: In constructor 'AllSuffWorker::AllSuffWorker(const AllSuffWorker&, RcppParallel::Split)':
+funs.cpp:208:9: warning: 'AllSuffWorker::nb' will be initialized after [-Wreorder]
+  size_t nb;
+         ^
+funs.cpp:207:10: warning:   'double* AllSuffWorker::weight' [-Wreorder]
+  double* weight;
+          ^
+funs.cpp:237:2: warning:   when initialized here [-Wreorder]
+  AllSuffWorker(const AllSuffWorker& asw, Split):x(asw.x),xi(asw.xi),di(asw.di),bnmap(asw.bnmap),nb(asw.nb),weight(asw.weight) {
+  ^
+funs.cpp: In function 'void allsuff(tree&, xinfo&, dinfo&, double*, tree::npv&, std::vector<sinfo>&)':
+funs.cpp:284:16: warning: unused variable 'tbn' [-Wunused-variable]
+  tree::tree_cp tbn; //the pointer to the bottom node for the current observations
+                ^
+funs.cpp:285:9: warning: unused variable 'ni' [-Wunused-variable]
+  size_t ni;         //the  index into vector of the current bottom node
+         ^
+funs.cpp:286:10: warning: unused variable 'xx' [-Wunused-variable]
+  double *xx;        //current x
+          ^
+funs.cpp:287:9: warning: unused variable 'y' [-Wunused-variable]
+  double y;          //current y
+         ^
+funs.cpp: In function 'std::vector<int, std::allocator<int> > counts(tree&, xinfo&, dinfo&, tree::npv&)':
+funs.cpp:324:9: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  double y;          //current y
+         ^
+funs.cpp:330:7: warning: unused variable 'nb' [-Wunused-variable]
+  bvsz nb = bnv.size();
+       ^
+funs.cpp: In function 'void update_counts(int, std::vector<int, std::allocator<int> >&, tree&, xinfo&, dinfo&, tree::npv&, int)':
+funs.cpp:357:9: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  double y;          //current y
+         ^
+funs.cpp:360:7: warning: unused variable 'nb' [-Wunused-variable]
+  bvsz nb = bnv.size();
+       ^
+funs.cpp: In function 'void update_counts(int, std::vector<int, std::allocator<int> >&, tree&, xinfo&, dinfo&, std::map<const tree*, long long unsigned int>&, int)':
+funs.cpp:382:9: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+  double y;          //current y
+         ^
+funs.cpp: In function 'void update_counts(int, std::vector<int, std::allocator<int> >&, tree&, xinfo&, dinfo&, std::map<const tree*, long long unsigned int>&, int, const tree*&)':
+funs.cpp:410:10: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+   double y;          //current y
+          ^
+funs.cpp: In constructor 'FitWorker::FitWorker(tree&, xinfo&, dinfo&, std::vector<double>&)':
+funs.cpp:939:8: warning: 'FitWorker::t' will be initialized after [-Wreorder]
+  tree& t; // tree
+        ^
+funs.cpp:938:9: warning:   'xinfo& FitWorker::xi' [-Wreorder]
+  xinfo& xi; // split rules from xinfo
+         ^
+funs.cpp:946:4: warning:   when initialized here [-Wreorder]
+    FitWorker(tree& t, 
+    ^
+funs.cpp:938:9: warning: 'FitWorker::xi' will be initialized after [-Wreorder]
+  xinfo& xi; // split rules from xinfo
+         ^
+funs.cpp:937:9: warning:   'dinfo& FitWorker::di' [-Wreorder]
+  dinfo& di; // number of observations from dinfo
+         ^
+funs.cpp:946:4: warning:   when initialized here [-Wreorder]
+    FitWorker(tree& t, 
+    ^
+funs.cpp:937:9: warning: 'FitWorker::di' will be initialized after [-Wreorder]
+  dinfo& di; // number of observations from dinfo
+         ^
+funs.cpp:936:24: warning:   'std::vector<double>& FitWorker::fv' [-Wreorder]
+   std::vector<double>& fv; // node means
+                        ^
+funs.cpp:946:4: warning:   when initialized here [-Wreorder]
+    FitWorker(tree& t, 
+    ^
+funs.cpp: In function 'void drmu(tree&, xinfo&, dinfo&, pinfo&, double*, RNG&)':
+funs.cpp:1066:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j=0; j<di.n; ++j) Rcout << *(di.x + j*di.p) <<" "; //*(x + p*i+j)
+                 ^
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c logging.cpp -o logging.o
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c rng.cpp -o rng.o
+c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c tree.cpp -o tree.o
+tree.cpp: In member function 'void tree::pr(xinfo&) const':
+tree.cpp:596:9: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  size_t pid;
+         ^
+tree.cpp: In member function 'void tree::pr() const':
+tree.cpp:636:9: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  size_t pid;
+         ^
+c:/Rtools/mingw_64/bin/g++ -shared -o bcf2.dll tmp.def RcppExports.o bcf_clean.o bcf_clean_overpar.o bd.o funs.o logging.o rng.o tree.o -LC:/Users/PMariani/Documents/R/R-3.5.2/bin/x64 -lRlapack -LC:/Users/PMariani/Documents/R/R-3.5.2/bin/x64 -lRblas -lgfortran -lm -lquadmath -LC:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/lib/x64 -ltbb -ltbbmalloc -LC:/Users/PMariani/Documents/R/R-3.5.2/bin/x64 -lR
+installing to C:/Users/PMariani/Documents/R/R-3.5.2/library/bcf2/libs/x64
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Warning: package 'Hmisc' was built under R version 3.5.3
+Warning: replacing previous import 'Rcpp::LdFlags' by 'RcppParallel::LdFlags' when loading 'bcf2'
+** help
+*** installing help indices
+  converting help for package 'bcf2'
+    finding HTML links ... done
+    bcf                                     html  
+** building package indices
+** testing if installed package can be loaded
+Warning: package 'Hmisc' was built under R version 3.5.3
+Warning: replacing previous import 'Rcpp::LdFlags' by 'RcppParallel::LdFlags' when loading 'bcf2'
+* DONE (bcf2)
+Making 'packages.html' ... done
+In R CMD INSTALL
+BCF2 Installed Correctly
+Warning message:
+replacing previous import 'Rcpp::LdFlags' by 'RcppParallel::LdFlags' when loading 'bcf2' 

@@ -65,7 +65,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
   Logger logger = Logger();  
   char logBuff[100];
 
-  bool log_level = false;
+  bool log_level = verbose_sigma;
 
   logger.setLevel(log_level);
   logger.log("============================================================");
@@ -359,7 +359,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
 
   for(size_t iIter=0;iIter<(nd*thin+burn);iIter++) {
     // verbose_itr = iIter>=burn;
-    verbose_itr = false;
+    verbose_itr = true;
 
   if(verbose_sigma){
       if(iIter%status_interval==0) {
@@ -370,7 +370,9 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     logger.setLevel(verbose_itr);
 
     logger.log("==============================================");
-    sprintf(logBuff, "MCMC iteration: %d of %d, sigma %f", iIter + 1, nd*thin+burn, sigma);
+    sprintf(logBuff, "MCMC iteration: %d of %d, sigma %f", iIter + 1, nd*thin+burn);
+    logger.log(logBuff);
+    sprintf(logBuff, "sigma %f, mscale %f, bscale0 %f, bscale1 %f",sigma, mscale, bscale0, bscale1);
     logger.log(logBuff);
     logger.log("==============================================");
     if (verbose_itr){
@@ -391,6 +393,13 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     for(size_t k=ntrt; k<n; ++k) {
       weight_het[k] = w[k]*bscale0*bscale0/(sigma*sigma);
     }
+    if(verbose_itr){
+        logger.getVectorHead(weight, logBuff);
+        Rcout << "\n phi: " <<  logBuff << "\n\n";
+
+        logger.getVectorHead(weight_het, logBuff);
+        Rcout << "\n phi_het: " <<  logBuff << "\n\n";
+    } 
 
 
     logger.log("=====================================");

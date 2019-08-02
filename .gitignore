@@ -76,4 +76,4 @@ tmp
 *.app
 
 # Testing scripts
-scripts/
+# scripts/

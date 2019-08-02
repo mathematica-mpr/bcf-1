@@ -2,8 +2,8 @@ set.seed(1)
 
 p <- 3 # two control variables and one effect moderator
 n <- 100
-n_burn <- 50
-n_sim <- 100
+n_burn <- 10
+n_sim <- 20
 
 
 x <- matrix(rnorm(n*p), nrow=n)
@@ -31,7 +31,7 @@ sigma <- diff(range(q + tau*pi))/8
 # draw the response variable with additive error
 y <- mu + sigma*rnorm(n)
 
-
+set.seed(1)
 out2 <- bcf2::bcf(y          = y,
                   z          = z,
                   x_control  = x,
@@ -39,8 +39,10 @@ out2 <- bcf2::bcf(y          = y,
                   pihat      = pi,
                   nburn      = n_burn,
                   nsim       = n_sim,
-                  w          = weights, 
-                  update_interval = 100,
+                  w          = weights,
+                  ntree_control  = 5,
+                  ntree_moderate = 5, 
+                  update_interval = 1,
                   verbose=TRUE)
 
                   
