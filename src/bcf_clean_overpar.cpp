@@ -79,6 +79,8 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     logger.getVectorHead(w_, logBuff);
     Rcout << "w: " <<  logBuff << "\n";
 
+    sprintf(logBuff, "lambda %f, nu %f, con_sd %f, mod_sd %f",lambda, nu, con_sd, mod_sd);
+    logger.log(logBuff);
 
   }
 
@@ -787,6 +789,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     }
     pi_mod.sigma = sigma;
 
+    logger.log("Drawing mscale");
 
     if(use_mscale) {
       double ww = 0.;
@@ -810,7 +813,6 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
         rw += r/w;
       }
 
-      logger.log("Drawing mscale");
 
 
       double mscale_old = mscale;

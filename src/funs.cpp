@@ -1060,13 +1060,23 @@ void drmu(tree& t, xinfo& xi, dinfo& di, pinfo& pi, double* weight, RNG& gen)
 	
 		double fcvar = 1.0/(1.0/(pi.tau * pi.tau)+sv[i].n);
 		double fcmean = sv[i].sy*fcvar;
-		bnv[i]->setm(fcmean + gen.normal()*sqrt(fcvar));
+		double rand = gen.normal();
+		bnv[i]->setm(fcmean + rand*sqrt(fcvar));
 
-	  if(bnv[i]->getm() != bnv[i]->getm()) { 
-		for(int j=0; j<di.n; ++j) Rcout << *(di.x + j*di.p) <<" "; //*(x + p*i+j)
-		Rcout << endl <<" fcvar "<< fcvar <<" svi[n] "<< sv[i].n <<" i "<<i;
-		Rcout << endl << t;
-		Rcpp::stop("drmu failed");
+		Rcout << "\n Leaf Number " << i << "\n";\
+		Rcout << "rand " << rand << "\n";\
+		Rcout << "fcvar "  << fcvar << "\n";
+		Rcout << "fcmean " << fcmean << "\n";
+		Rcout << "pi.tau " << pi.tau  << "\n";
+		Rcout << "sv[i].n " << sv[i].n  << "\n";
+		Rcout << "sv[i].n0 " << sv[i].n0  << "\n";
+		Rcout << "leaf mean " << bnv[i]->getm()  << "\n\n";
+
+	  	if(bnv[i]->getm() != bnv[i]->getm()) { 
+			for(int j=0; j<di.n; ++j) Rcout << *(di.x + j*di.p) <<" "; //*(x + p*i+j)
+			Rcout << endl <<" fcvar "<< fcvar <<" svi[n] "<< sv[i].n <<" i "<<i;
+			Rcout << endl << t;
+			Rcpp::stop("drmu failed");
 		}
 	}
 }

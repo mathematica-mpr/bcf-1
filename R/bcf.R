@@ -245,7 +245,12 @@ bcf <- function(y, z, x_control, x_moderate=x_control, pihat, w = NULL, n_thread
   cutpoint_list_c = lapply(1:ncol(x_c), function(i) .cp_quantile(x_c[,i]))
   cutpoint_list_m = lapply(1:ncol(x_m), function(i) .cp_quantile(x_m[,i]))
 
-  sdy = sqrt(Hmisc::wtd.var(y, w))
+
+
+  cat("Initial Processing in R\n")
+
+
+  sdy = sqrt(Hmisc::wtd.var(y, w, method="ML"))
   muy = weighted.mean(y, w)
   yscale = (y-muy)/sdy
 
@@ -264,6 +269,14 @@ bcf <- function(y, z, x_control, x_moderate=x_control, pihat, w = NULL, n_thread
   perm = order(z, decreasing=TRUE)
 
   RcppParallel::setThreadOptions(numThreads=n_threads)
+
+  cat("sdy ", sdy, "\n")
+  cat("muy ", muy, "\n")
+  cat("yscale ", yscale, "\n")
+  cat("sighat ", sighat, "\n")
+  cat("lambda ", lambda, "\n")
+  cat("sd_control ", sd_control, "\n")
+  cat("sd_moderate ", sd_moderate, "\n")
 
   cat("Calling bcfoverparRcppClean From R\n")
   fitbcf = bcfoverparRcppClean(yscale[perm], z[perm], w[perm],
