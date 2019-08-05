@@ -44,8 +44,8 @@ out2 <- bcf2::bcf(y          = y,
                   ntree_moderate = 5, 
                   update_interval = 1,
                   verbose=TRUE)
-)
 
+saveRDS(out2, file = "examples/data_1000w.rds")
 
                   
 cat("BCF run complete\n")
