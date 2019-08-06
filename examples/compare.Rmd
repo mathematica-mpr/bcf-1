@@ -1,0 +1,44 @@
+---
+title: "Compare"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Libraries
+#______________________________
+library(bcf2)
+library(tidyverse)
+library(magrittr)
+library(arm)
+```
+
+
+```{r}
+orig_w  <- readRDS('data_0001w_orig.rds')
+
+orig_kw <- readRDS('data_1000w_orig.rds')
+
+
+
+
+orig_df    = data.frame('yhat'= colMeans(orig_w$yhat) ,
+                        'itr'  = seq(1, ncol(orig_kw$yhat), by=1) ,
+                        'case'='original normal weights')
+
+orig_kw_df = data.frame('yhat'= colMeans(orig_kw$yhat),
+                        'itr' = seq(1, ncol(orig_kw$yhat), by=1) ,
+                        'case'='original kilo weights')
+
+all_df = rbind(orig_df, orig_kw_df)
+
+ggplot(all_df, aes( x=all_df$itr, y=all_df$yhat, color=all_df$case)) + geom_point(shape = 23)
+
+
+```
