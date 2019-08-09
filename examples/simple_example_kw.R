@@ -9,7 +9,7 @@ n_sim <- 20
 x <- matrix(rnorm(n*p), nrow=n)
 
 weights <- 1.0*rexp(n)
-weights <- 1000 * weights
+weights <- 1000.0*weights
 
 # create targeted selection, whereby a practice's likelihood of joining the intervention (pi) is related to their expected outcome (mu)
 q <- -1*(x[,1]>(x[,2])) + 1*(x[,1]<(x[,2])) -0.1
@@ -44,6 +44,8 @@ out2 <- bcf2::bcf(y          = y,
                   ntree_moderate = 5, 
                   update_interval = 1,
                   verbose=TRUE)
+
+cat("saving \n")
 
 saveRDS(out2, file = "examples/data_1000w.rds")
 

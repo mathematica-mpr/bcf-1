@@ -82,10 +82,6 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
 
     sprintf(logBuff, "lambda %f, nu %f, con_sd %f, mod_sd %f",lambda, nu, con_sd, mod_sd);
     logger.log(logBuff);
-
-    sprintf(logBuff, "sqrt %f", sqrt(2));
-    logger.log(logBuff);
-
   }
 
 
@@ -703,6 +699,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
         double denominator = s2*bscale*bscale/(w[k]*allfit_mod[k]*allfit_mod[k]);
 
         if(denominator!=denominator) {
+          Rcout << "Denominator Problem!" << endl;
           Rcout << " w " << w << endl;
           stop("");
         }
@@ -716,10 +713,10 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
           stop("");
         }
         if(k<ntrt) {
-          ww1 += 1/denominator;
+          ww1 += 1.0/denominator;
           rw1 += r/denominator;
         } else {
-          ww0 += 1/denominator;
+          ww0 += 1.0/denominator;
           rw0 += r/denominator;
         }
       }
@@ -802,6 +799,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
       for(size_t k=0; k<n; ++k) {
         double denominator = s2*mscale*mscale/(w[k]*allfit_con[k]*allfit_con[k]);
         if(denominator!=denominator) {
+          Rcout << "Denominator Problem!" << endl;
           Rcout << " w " << w << endl;
           stop("");
         }
@@ -813,7 +811,7 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
           Rcout << "mscale " << k << " r " << r << " mscale " <<mscale<< " b*z " << allfit_mod[k]*z_[k] << " bscale " << bscale0 << " " <<bscale1 << endl;
           stop("");
         }
-        ww += 1/denominator;
+        ww += 1.0/denominator;
         rw += r/denominator;
       }
 

@@ -28,19 +28,19 @@ files 'DESCRIPTION', 'man/bcf.Rd', 'NAMESPACE', 'R/bcf.R', 'R/RcppExports.R', 's
 c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c RcppExports.cpp -o RcppExports.o
 c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bcf_clean.cpp -o bcf_clean.o
 c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bcf_clean_overpar.cpp -o bcf_clean_overpar.o
-bcf_clean_overpar.cpp:99:3: warning: "/*" within comment [-Wcomment]
+bcf_clean_overpar.cpp:95:3: warning: "/*" within comment [-Wcomment]
    /* Read, format y
  ^
-bcf_clean_overpar.cpp:118:3: warning: "/*" within comment [-Wcomment]
+bcf_clean_overpar.cpp:114:3: warning: "/*" within comment [-Wcomment]
    /* Read, format  weights 
  ^
-bcf_clean_overpar.cpp:129:3: warning: "/*" within comment [-Wcomment]
+bcf_clean_overpar.cpp:125:3: warning: "/*" within comment [-Wcomment]
    /* Read, format X_con
  ^
-bcf_clean_overpar.cpp:154:3: warning: "/*" within comment [-Wcomment]
+bcf_clean_overpar.cpp:150:3: warning: "/*" within comment [-Wcomment]
    /* Read, format X_mod
  ^
-bcf_clean_overpar.cpp:185:3: warning: "/*" within comment [-Wcomment]
+bcf_clean_overpar.cpp:181:3: warning: "/*" within comment [-Wcomment]
    /* Setup the model
  ^
 c:/Rtools/mingw_64/bin/g++  -std=gnu++11 -I"C:/Users/PMariani/Documents/R/R-3.5.2/include" -DNDEBUG  -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/Rcpp/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppArmadillo/include" -I"C:/Users/PMariani/Documents/R/R-3.5.2/library/RcppParallel/include"     -DRCPP_PARALLEL_USE_TBB=1   -O2 -Wall  -mtune=generic -c bd.cpp -o bd.o
