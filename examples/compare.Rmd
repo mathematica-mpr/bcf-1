@@ -49,4 +49,6 @@ all_df = rbind(orig_df, orig_kw_df,new_df,new_kw_df)
 ggplot(all_df, aes( x=all_df$itr, y=all_df$yhat, color=all_df$case)) + geom_point(shape = 23)
 
 
+cor(colMeans(new_w$yhat), colMeans(new_kw$yhat))
+
 ```

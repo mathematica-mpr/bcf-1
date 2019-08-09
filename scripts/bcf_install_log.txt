@@ -1,5 +1,8 @@
 Removing package from 'C:/Users/PMariani/Documents/R/R-3.5.2/library'
 (as 'lib' is unspecified)
+Error in find.package(pkgs, lib) : there is no package called 'bcf2'
+Calls: remove.packages -> find.package
+Execution halted
 Updating bcf2 documentation
 Writing NAMESPACE
 Loading bcf2
