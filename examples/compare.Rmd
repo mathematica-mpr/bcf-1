@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Libraries
 #______________________________
-library(bcf2)
 library(tidyverse)
 library(magrittr)
 library(arm)
@@ -22,10 +21,10 @@ library(arm)
 
 ```{r}
 orig_w  <- readRDS('data_0001w_orig.rds')
-
 orig_kw <- readRDS('data_1000w_orig.rds')
 
-
+new_w  <- readRDS('data_0001w.rds')
+new_kw <- readRDS('data_1000w.rds')
 
 
 orig_df    = data.frame('yhat'= colMeans(orig_w$yhat) ,
@@ -36,7 +35,16 @@ orig_kw_df = data.frame('yhat'= colMeans(orig_kw$yhat),
                         'itr' = seq(1, ncol(orig_kw$yhat), by=1) ,
                         'case'='original kilo weights')
 
-all_df = rbind(orig_df, orig_kw_df)
+new_df    = data.frame('yhat'= colMeans(new_w$yhat) ,
+                        'itr'  = seq(1, ncol(new_w$yhat), by=1) ,
+                        'case'='new normal weights')
+
+new_kw_df = data.frame('yhat'= colMeans(new_kw$yhat),
+                        'itr' = seq(1, ncol(new_kw$yhat), by=1) ,
+                        'case'='new kilo weights')
+
+
+all_df = rbind(orig_df, orig_kw_df,new_df,new_kw_df)
 
 ggplot(all_df, aes( x=all_df$itr, y=all_df$yhat, color=all_df$case)) + geom_point(shape = 23)
 

@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <ctime>
+#include <cmath> 
 
 #include "rng.h"
 #include "tree.h"
@@ -80,6 +81,9 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
     Rcout << "w: " <<  logBuff << "\n";
 
     sprintf(logBuff, "lambda %f, nu %f, con_sd %f, mod_sd %f",lambda, nu, con_sd, mod_sd);
+    logger.log(logBuff);
+
+    sprintf(logBuff, "sqrt %f", sqrt(2));
     logger.log(logBuff);
 
   }
@@ -696,9 +700,9 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
       double s2 = sigma*sigma;
       for(size_t k=0; k<n; ++k) {
         double bscale = (k<ntrt) ? bscale1 : bscale0;
-        double w = s2*bscale*bscale/(allfit_mod[k]*allfit_mod[k]);
+        double denominator = s2*bscale*bscale/(w[k]*allfit_mod[k]*allfit_mod[k]);
 
-        if(w!=w) {
+        if(denominator!=denominator) {
           Rcout << " w " << w << endl;
           stop("");
         }
@@ -712,11 +716,11 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
           stop("");
         }
         if(k<ntrt) {
-          ww1 += 1/w;
-          rw1 += r/w;
+          ww1 += 1/denominator;
+          rw1 += r/denominator;
         } else {
-          ww0 += 1/w;
-          rw0 += r/w;
+          ww0 += 1/denominator;
+          rw0 += r/denominator;
         }
       }
       logger.log("Drawing bscale 1");
@@ -796,8 +800,8 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
       double rw = 0.;
       double s2 = sigma*sigma;
       for(size_t k=0; k<n; ++k) {
-        double w = s2*mscale*mscale/(allfit_con[k]*allfit_con[k]);
-        if(w!=w) {
+        double denominator = s2*mscale*mscale/(w[k]*allfit_con[k]*allfit_con[k]);
+        if(denominator!=denominator) {
           Rcout << " w " << w << endl;
           stop("");
         }
@@ -809,8 +813,8 @@ List bcfoverparRcppClean(NumericVector y_, NumericVector z_, NumericVector w_,
           Rcout << "mscale " << k << " r " << r << " mscale " <<mscale<< " b*z " << allfit_mod[k]*z_[k] << " bscale " << bscale0 << " " <<bscale1 << endl;
           stop("");
         }
-        ww += 1/w;
-        rw += r/w;
+        ww += 1/denominator;
+        rw += r/denominator;
       }
 
 
